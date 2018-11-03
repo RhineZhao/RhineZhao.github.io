@@ -1,7 +1,7 @@
 # Site settings
 title: The life of Rhine
 SEOTitle: 莱茵的博客 | The life of Rhine
-header-img: img/post-bg-desk.jpg
+header-img: img/post-bg-desk.jpg   #首页背景
 email: 1477787672@qq.com
 description: "岁月静好，现世安稳."
 keyword: "BY, BY Blog, 莱茵的博客, qiubaiying, iOS, Apple, iPhone"
