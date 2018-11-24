@@ -4,14 +4,14 @@ SEOTitle: 莱茵的博客 | The life of Rhine
 header-img: img/post-bg-desk.jpg   #首页背景
 email: 1477787672@qq.com
 description: "岁月静好，现世安稳."
-keyword: "BY, BY Blog, 莱茵的博客, qiubaiying, iOS, Apple, iPhone"
+keyword: "BY, BY Blog, 莱茵的博客, iOS, Apple, iPhone"
 url: "https://RhineZhao.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/RhineZhao/RhineZhao.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "是个狼人"
+sidebar-about-description: "器域难量"
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
