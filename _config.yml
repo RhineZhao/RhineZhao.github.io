@@ -1,6 +1,6 @@
 # Site settings
-title: The life of Rhine
-SEOTitle: 莱茵的博客 | The life of Rhine
+title: Rhine＇s
+SEOTitle: 莱茵的博客 |  Rhine＇s
 header-img: img/post-bg-desk.jpg   #首页背景
 email: 1477787672@qq.com
 description: "岁月静好，现世安稳."
@@ -97,7 +97,7 @@ service-worker: true
 
 
 # Friends
-friends: [
+#friends: [
     {
         title: "WY",
         href: "http://zhengwuyang.com"
