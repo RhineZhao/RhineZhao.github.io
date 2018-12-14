@@ -21,7 +21,7 @@ RSS: false
 # weibo_username:     qiubaiying
 toutiao_name:     riyaoyourili
 github_username:    RhineZhao
-#facebook_username:  baiying.qiu.7
+GitHub_username:  RhineZhao
 #jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
 
@@ -102,4 +102,8 @@ friends: [
         title: "今日头条",
         href: "https://www.toutiao.com/m1594178443715587/"
     }
-]
+   {
+        title: "GitHub",
+        href: "https://github.com/RhineZhao/RhineZhao.github.io"
+    }
+]  
