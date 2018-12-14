@@ -101,9 +101,4 @@ friends: [
     {
         title: "今日头条",
         href: "https://www.toutiao.com/m1594178443715587/"
-    }
-   {
-        title: "GitHub",
-        href: "https://github.com/RhineZhao/RhineZhao.github.io"
-    }
-]  
+    }]  
