@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="m-auto  dark "><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+  <title>Syntax - My New Hugo Site</title>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="theme-color" content="" />
+  <meta name="description" content="Website title" />
+  <meta name="author" content="Darshan Baral" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+
+  
+  <link 
+    rel="stylesheet"
+    href="/css/main.css"
+    />
+  
+
+  <style>
+     
+    html {
+      touch-action: manipulation;
+      scroll-behavior: smooth;
+    }
+
+    .panel {
+      max-height: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .profile-photo-container {
+      img {
+        max-width: 100%;
+      }
+    }
+     
+    .pagefind-ui__search-input {
+      color: black;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .pagefind-ui__search-clear {
+      display: none;
+    }
+    .dark .pagefind-ui__search-input {
+      color: white;
+      background-color: #322d2d;
+      width: 100%;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      border: 1px solid gray;
+    }
+    .dark .pagefind-ui__search-input::placeholder {
+      color: #8f8f8f;
+    }
+    .chevron {
+      transition: 300ms linear rotate;
+    }
+    .active > .chevron {
+      transform: rotate(90deg);
+    }
+  </style>
+
+  <script>
+    const expandAccordion = (elem) => {
+      const allPanels = Array.from(document.querySelectorAll(".panel"));
+      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
+
+      if (!elem.parentElement.classList.contains("active")) {
+        allAccordion.forEach((acc) => {
+          acc.classList.remove("active");
+        });
+        elem.parentElement.classList.add("active");
+        allPanels.forEach(function (elem) {
+          elem.style.maxHeight = null;
+        });
+        let activePanel = elem.parentElement.nextElementSibling;
+        if (
+          activePanel.id != "skill-panel" &&
+          document.querySelector("#skill-panel")
+        ) {
+          let skillBars = Array.from(
+            document.querySelectorAll("#skill-percent")
+          );
+          skillBars.forEach((elem) => {
+            elem.style.width = "0";
+          });
+        }
+        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
+      }
+    };
+  </script>
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+
+    const setTheme = (theme) => {
+      html.classList.remove("light");
+      if (theme === "dark") {
+        html.classList.add("dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.remove("dark");
+        window.localStorage.setItem("theme", "light");
+      }
+      fixThemeToggleIcon(theme);
+    };
+
+    const fixThemeToggleIcon = (theme) => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (themeToggle) {
+        if (theme === "dark") {
+          themeToggle.classList.remove("fa-moon");
+          themeToggle.classList.add("fa-sun");
+        } else {
+          themeToggle.classList.remove("fa-sun");
+          themeToggle.classList.add("fa-moon");
+        }
+      }
+    };
+
+    if (theme == null) {
+      if (html.classList.contains("dark")) {
+        theme = "dark";
+      } else if (html.classList.contains("light")) {
+        theme = "light";
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          theme = "dark";
+        } else {
+          theme = "light";
+        }
+      }
+    }
+
+    setTheme(theme);
+
+    const toggleTheme = () => {
+      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
+    };
+
+    window.onload = () => {
+      fixThemeToggleIcon(theme);
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-700 dark:border-gray-300 justify-between"
+>
+  <div>
+    <a class="nav-menu-item" href="http://localhost:1313/">Home</a>
+    <a class="nav-menu-item" href="/blog">Blog</a>
+  </div>
+  <div>
+    <a class="mr-4" href="/search">
+      <i class="fas fa-search"></i>
+    </a>
+    <i
+      class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+      onclick="toggleTheme()"
+    ></i>
+  </div>
+</header>
+
+
+
+    
+    <main class="grow">
+<div class="prose dark:prose-invert max-w-none">
+  <h1 class="standard font-italic">
+    #syntax
+  </h1>
+  
+  <div class="">
+    <div
+      class="rounded-sm hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active"
+    >
+      <i
+        onclick="expandAccordion(this)"
+        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded-sm text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+      ></i>
+      <a href="/blog/markdown_syntax/"
+        ><h2 class="accordion m-0">Demo Page</h2></a
+      >
+    </div>
+    <div
+      id="panel-item-0"
+      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
+    >
+      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">November 19, 2022</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 3 minutes</p>
+ 
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-categories">
+  Categories: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/themes"
+    title="categories"
+  >
+    #themes</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/categories/syntax"
+    title="categories"
+  >
+    #syntax</a>
+  
+</p>
+
+
+
+<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
+  Tags: 
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/markdown"
+    title="tags"
+  >
+    #markdown</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/css"
+    title="tags"
+  >
+    #css</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/html"
+    title="tags"
+  >
+    #html</a>
+  
+  <a
+    class="metadata-tags hover:no-underline"
+    href="/tags/themes"
+    title="tags"
+  >
+    #themes</a>
+  
+</p>
+
+
+</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="my-6 flex justify-center pagination-links">
+  
+</div>
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-500  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+
+  
+</footer>
+
+    
+  </body>
+</html>

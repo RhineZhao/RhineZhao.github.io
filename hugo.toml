@@ -1,3 +1,20 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
+baseURL = 'https://test-junyu.com/'
+languageCode = 'zh-cn'
 title = 'My New Hugo Site'
+theme = 'aafu'
+[module]
+  [[module.mounts]]
+    source = "node_modules"
+    target = "assets/node_modules" # 将 node_modules 挂载到 Hugo 的 assets 目录下
+
+[build]
+  [[build.css]]
+    # 注意：这里的 targetPath 和 src 要根据你主题的实际情况调整
+    # 通常主题会在 assets/css/ 下有一个 main.css 作为入口
+    src = "assets/css/main.css"
+    targetPath = "static/css/main.css"
+    # 核心命令：用 npx 直接调用远程 Tailwind，绕开本地安装
+    command = "npx tailwindcss@latest -i themes/aafu/assets/css/main.css -o static/css/main.css --watch"
+
+# 可选：屏蔽那个“Raw HTML omitted”警告，看着干净
+ignoreLogs = ['warning-goldmark-raw-html']
